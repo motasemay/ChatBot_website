@@ -7,12 +7,17 @@ import Root from './routes/Root';
 import Register from './pages/register/components/Register';
 
 import Chatbot from './pages/chatbot/Chatbot.jsx';
+import MiniDrawer from './components/MiniDrawer.jsx';
 function App() {
   const router = createBrowserRouter([
     {
       path: "/register",
       element: <Register />,
     },
+    {
+      path:"/drawer",
+      element:<MiniDrawer/>
+    },  
     {
       path: "/login",
       element: <Login />,

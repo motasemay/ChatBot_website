@@ -5,7 +5,7 @@ import ourLogo from '../../assets/ourLogo.jpg';
 import chatStyle from './Chatbot.module.css';
 
 function Chatbot() {
-    // here in fawri 
+
     const [messages, setMessages] = useState([]);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
