@@ -20,7 +20,9 @@ import SideBarStyle from "./SideBar.module.css";
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import HistoryToggleOffOutlinedIcon from '@mui/icons-material/HistoryToggleOffOutlined';
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
-
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { useNavigate } from 'react-router-dom';
 const drawerWidth = 240;
 
 
@@ -100,23 +102,49 @@ const sidebarArray1=[
   "path":"/Reports",
 },
 ] 
+const sidebarArray2=[
+  
+  {
+  "text":"Settings", 
+  "icon":<SettingsOutlinedIcon/>,
+  "path":"/settings",
+},
+{
+  "text":"Log Out", 
+  "icon":<LogoutOutlinedIcon/>,
+  "path":"/logout",
+},  
+] 
 
 
 function SideBar({ open, handleDrawerClose ,theme}) {
-
+const navigate=useNavigate();
   // const theme = useTheme();
 
   return (
-    <Drawer variant="permanent" open={open} >
+    <Drawer className={SideBarStyle.sidebarContainer}  variant="permanent" open={open} >
       <DrawerHeader  >
-        <IconButton onClick={handleDrawerClose} className={SideBarStyle.SidebarContainer}>
+        <IconButton onClick={handleDrawerClose} sx={{background:"#171717"}} className={SideBarStyle.SidebarContainer}>
           {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton >
       </DrawerHeader>
-      <Divider />
+      <Divider sx={{backgroundColor:'#ffffff20'}}/>
       <List >
         {sidebarArray1.map(item => (
-          <ListItem key={item.path} disablePadding sx={{ display: 'block' }}>
+          <ListItem key={item.path} disablePadding 
+          onClick={()=>{
+            navigate(item.path);
+          }}
+          sx={{ display: 'block',
+            marginBottom:'7px', 
+            transition:'background-color 0.4s ease',
+                backgroundColor:
+                location.pathname===item.path? '#861e23 !important':null,
+                borderRadius:
+                location.pathname===item.path?  '12px' :null ,
+
+           }} 
+          >
             <ListItemButton
               sx={[
                 {
@@ -165,12 +193,27 @@ function SideBar({ open, handleDrawerClose ,theme}) {
           </ListItem>
         ))}
       </List>
-      <Divider />
+      <Divider sx={{backgroundColor:'#ffffff20'}} />
 
 
       <List >
-        {['ChatBot', 'History', 'Reports', 'Setttings'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+        {sidebarArray2.map(item => (
+          <ListItem key={item.path} disablePadding 
+          
+          onClick={()=>{
+            navigate(item.path);
+          }}
+          sx={{ display: 'block',
+                marginBottom:'7px',
+                transition:'background-color 0.4s ease',
+                backgroundColor:
+                location.pathname===item.path? '#861e23 !important':null,
+                borderRadius:
+                location.pathname===item.path?  '12px' :null ,
+
+
+           }} 
+          >
             <ListItemButton
               sx={[
                 {
@@ -201,10 +244,10 @@ function SideBar({ open, handleDrawerClose ,theme}) {
                     },
                 ]}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {item.icon}
               </ListItemIcon>
               <ListItemText
-                primary={text}
+                primary={item.text}
                 sx={[
                   open
                     ? {

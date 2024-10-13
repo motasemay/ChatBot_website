@@ -13,13 +13,14 @@ const drawerWidth = 240;
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme }) => ({
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1000001,
     transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
     variants: [
         {
+            // @ts-ignore
             props: ({ open }) => open,
             style: {
                 marginLeft: drawerWidth,
@@ -37,7 +38,9 @@ const AppBar = styled(MuiAppBar, {
 function TopBar({ open, handleDrawerOpen }) {
 
     return (
-        <AppBar position="fixed" open={open} className={topBarStyle.topBarContainer}>
+        <AppBar position="fixed" 
+// @ts-ignore
+        open={open} >
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -53,9 +56,9 @@ function TopBar({ open, handleDrawerOpen }) {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">
+                {/* <Typography variant="h6" noWrap component="div" sx={{marginRight:'80px'}}>
                     Bilsan ChatBot
-                </Typography>
+                </Typography> */}
                 <SearchBar />
 
                 <Box flexGrow={1} />

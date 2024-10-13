@@ -9,6 +9,7 @@ import TopBar from "./TopBar"
 import SideBar from './SideBar';
 import Chatbot from '../pages/chatbot/Chatbot';
 import { green, red } from '@mui/material/colors';
+import { Outlet } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -29,7 +30,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#2b2a2a',       // Dark gray
+      main: '#171717',       // Dark gray
       light: '#757ce8',       // Light blue
       dark: '#000000',        // Darker shade (if needed)
       contrastText: '#fff',   // White text on primary color
@@ -41,11 +42,11 @@ const theme = createTheme({
       contrastText: '#ffffff' // White text on secondary color
     },
     background: {
-      default: '#f0f0f0',     // Default background color
-      paper: '#ffffff',       // Paper background color
+      default: '#444',     // Default background color
+      paper: '#2C2C2E',       // Paper background color
     },
     text: {
-      primary: '#000000',     // Default text color
+      primary: '#fff',     // Default text color
       secondary: '#757575',   // Secondary text color
     },
   },
@@ -76,12 +77,16 @@ export default function MiniDrawer() {
       <SideBar open={open} handleDrawerClose={handleDrawerClose} theme={theme}/>
 
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography sx={{ marginBottom: 2 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 0.07 }} >
+         <DrawerHeader />
+        {/*<Typography sx={{ marginBottom: 2 }}>
           example eaaskdla;sdfjk;;jklas
-        </Typography>
+        </Typography> */}
+        <div className="outletPage">
 
+                <Outlet/>
+  
+        </div>  
       </Box>
     </Box>
     

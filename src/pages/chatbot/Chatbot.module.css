@@ -11,12 +11,13 @@
 }
 
 .chatContainer {
-    background: linear-gradient(135deg, #2a2a2a, #1b1b1b);
+    /* background: linear-gradient(135deg, #2a2a2a, #1b1b1b); */
+    background-color: #666;
     color: #e0e0e0;
     font-family: 'Poppins', sans-serif;
 
 
-    height: 100vh;
+    height: calc(100vh - 65px);
     display: flex;
     margin: 0;
     overflow: hidden;
@@ -43,13 +44,25 @@
     /* align-items: center; */
     /* border-left: 1px solid #ffffff; */
 
-
-
+/* 
     scrollbar-width: thin;
-    /* For Firefox */
-    scrollbar-color: #85262a transparent;
+    scroll-snap-type: mandatory;
+    scrollbar-color: #85262a transparent; */
+
     /* For Firefox */
 
+}
+.chatMessages::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.chatMessages::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.chatMessages::-webkit-scrollbar-thumb {
+    background-color: #85262a; /* Color of the scrollbar */
+    border-radius: 10px;
 }
 
 .chatMessages .mContainer {
@@ -165,12 +178,12 @@
 
 .sidebar {
     width: 300px;
-    background-color: #171717;
+    background-color: #555;
+    /* border-left: 1px solid #ddd; */
     color: #ffffff;
-
     margin: 0px 0px 0px 0px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    height: 100vh;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+    height: calc(100vh - 65px);
     padding: 20px;
     overflow-y: hidden;
     display: flex;
@@ -178,11 +191,12 @@
     /* border-right: 1px solid #ffffff; */
     z-index: 1000000;
     transition: all 0.45s ease-in-out;
+    border-radius: 10px 0 0 10px;
 }
 
 
 .showSideBar {
-   left: 0px !important;
+   right: 0px !important;
    opacity: 1 !important;
 }
 
@@ -203,9 +217,13 @@
 .sidebar h2 {
     font-size: 24px;
     margin-bottom: 15px;
-    
+    padding-bottom: 2px;
+    text-align: center;
+    /* background-color: #ffffff4f; */
+    /* border-radius: 10px; */
+    border-bottom: #85262a solid 2px;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
-
+/* color: #ffffff; */
 
     /* border-bottom: 2px white solid; */
 }
@@ -220,7 +238,7 @@
 }
 
 .sidebar ul li a {
-    color: #c7bebe;
+    color: #d3cccc;
     text-decoration: none;
     font-size: 16px;
     display: block;
@@ -259,7 +277,7 @@
 }
 
 .toggleButtonRight{
-    margin-left: 302px !important;
+    margin-right: 302px !important;
     margin-right: 30px;
     
 }
@@ -275,7 +293,7 @@ border-radius: 5px;
    
 
     z-index: 100000;
-    background-color: #ffffff4f;
+    background-color: #696969 ;
     /* border-radius:  0px 10px 0 0; */
     color: #fff;
 
@@ -676,11 +694,14 @@ border-radius: 5px;
 
 .processedFilesSection h2 {
     text-align: center;
+    padding-bottom: 2px;
+    /* background-color: #85262a; */
+    border-bottom: #85262a solid 2px;
 }
 
 .processedFilesSection ul {
     border-radius: 20px;
-    background-color: #333;
+    background-color: #33333383;
     padding: 10px;
     max-height: 260px;
     overflow-y: auto;
@@ -700,12 +721,12 @@ border-radius: 5px;
     align-items: center;
     justify-content: space-between;
 
-    color: #e0e0e0;
+    color: #e6e3e3;
     cursor: pointer;
     /* Add pointer cursor for interactivity (optional) */
     transition: background-color 0.2s ease;
     /* Add a smooth hover effect */
-    border-bottom: .5px solid #444;
+    border-bottom: .5px solid #333232;
     transition: background-color .1s ease;
 
 }
@@ -728,7 +749,7 @@ border-radius: 5px;
 }
 
 .processedFilesList li:hover {
-    background-color: #171717a5;
+    background-color: #1717175d;
 
 }
 
@@ -817,8 +838,9 @@ border-radius: 5px;
 /* Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
     .sidebar {
+
         position: fixed;
-        left: -310px;
+        right: -310px;
         opacity: .5;
     }
     .overlay{
@@ -869,7 +891,7 @@ border-radius: 5px;
     }
 
     textarea {
-        min-width: 250px;
+        min-width: 200px;
         margin-top: 3px;
 
     }
@@ -956,4 +978,11 @@ border-radius: 5px;
 }
 
 /* X-Small devices (portrait phones, less than 576px) */
-@media  (max-width: 595.98px) {}
+@media  (max-width: 595.98px) {
+    .chatHeader .mContainer{
+        display: none;
+    }
+    .toggleSidebarButton{
+        margin-left: auto;
+    }
+}

@@ -11,3 +11,7 @@ body {
   background-color: black;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+.outletPage{
+  border-radius: 50px;
+}
