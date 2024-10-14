@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import List from '@mui/material/List';
-import { styled } from '@mui/material';
+import { styled, Tooltip, Zoom } from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import { useTheme } from '@emotion/react';
 import AssistantIcon from '@mui/icons-material/Assistant';
@@ -22,6 +22,7 @@ import HistoryToggleOffOutlinedIcon from '@mui/icons-material/HistoryToggleOffOu
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { useNavigate } from 'react-router-dom';
 const drawerWidth = 240;
 
@@ -41,7 +42,7 @@ const openedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
-    
+
   }),
   overflowX: 'hidden',
 });
@@ -64,7 +65,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-    
+
     variants: [
       {
         props: ({ open }) => open,
@@ -84,181 +85,206 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const sidebarArray1=[
-  
+const sidebarArray1 = [
+
   {
-  "text":"Bilsan Chatbot", 
-  "icon":<AutoAwesomeOutlinedIcon/>,
-  "path":"/chatbot",
-},
-{
-  "text":"Chat History", 
-  "icon":<HistoryToggleOffOutlinedIcon/>,
-  "path":"/chatHistory",
-},
-{
-  "text":"Reports", 
-  "icon":<TextSnippetOutlinedIcon/>,
-  "path":"/Reports",
-},
-] 
-const sidebarArray2=[
-  
+    "text": "Bilsan Chatbot",
+    "icon": <AutoAwesomeOutlinedIcon />,
+    "path": "/chatbot",
+  },
   {
-  "text":"Settings", 
-  "icon":<SettingsOutlinedIcon/>,
-  "path":"/settings",
-},
-{
-  "text":"Log Out", 
-  "icon":<LogoutOutlinedIcon/>,
-  "path":"/logout",
-},  
-] 
+    "text": "Chat History",
+    "icon": <HistoryToggleOffOutlinedIcon />,
+    "path": "/chatHistory",
+  },
+  {
+    "text": "Reports",
+    "icon": <TextSnippetOutlinedIcon />,
+    "path": "/Reports",
+  },
+]
+const sidebarArray2 = [
+
+  {
+    "text": "Settings",
+    "icon": <SettingsOutlinedIcon />,
+    "path": "/settings",
+  },
+    {
+    "text": "New Account",
+    "icon": <ManageAccountsIcon />,
+    "path": "/register",
+  },
+  {
+    "text": "Log Out",
+    "icon": <LogoutOutlinedIcon />,
+    "path": "/logout",
+  },
+
+]
 
 
-function SideBar({ open, handleDrawerClose ,theme}) {
-const navigate=useNavigate();
+function SideBar({ open, handleDrawerClose, theme }) {
+  const navigate = useNavigate();
   // const theme = useTheme();
 
   return (
-    <Drawer className={SideBarStyle.sidebarContainer}  variant="permanent" open={open} >
+    <Drawer className={SideBarStyle.sidebarContainer} variant="permanent" open={open} >
       <DrawerHeader  >
-        <IconButton onClick={handleDrawerClose} sx={{background:"#171717"}} className={SideBarStyle.SidebarContainer}>
+        <IconButton onClick={handleDrawerClose} sx={{ background: "#85262a" }} className={SideBarStyle.SidebarContainer}>
           {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton >
       </DrawerHeader>
-      <Divider sx={{backgroundColor:'#ffffff20'}}/>
+      <Divider sx={{ backgroundColor: '#ffffff20' }} />
       <List >
         {sidebarArray1.map(item => (
-          <ListItem key={item.path} disablePadding 
-          onClick={()=>{
-            navigate(item.path);
-          }}
-          sx={{ display: 'block',
-            marginBottom:'7px', 
-            transition:'background-color 0.4s ease',
-                backgroundColor:
-                location.pathname===item.path? '#861e23 !important':null,
-                borderRadius:
-                location.pathname===item.path?  '12px' :null ,
+          <ListItem key={item.path} disablePadding
+            onClick={() => {
+              navigate(item.path);
+            }}
+            sx={{
+              display: 'block',
+              marginBottom: '7px',
+              transition: 'background-color 0.4s ease',
+           
+          
+              backgroundColor:
+              
+             
 
-           }} 
+                  item.text === "Bilsan Chatbot"&&location.pathname==='/' ? '#861e23 !important' : 
+                  location.pathname === item.path ? '#861e23 !important' : null,
+
+
+              borderRadius:
+                location.pathname === item.path ? '12px' : null,
+
+            }}
           >
-            <ListItemButton
-              sx={[
-                {
-                  minHeight: 48,
-                  px: 2.5,
-                },
-                open
-                  ? {
-                    justifyContent: 'initial',
-                  }
-                  : {
-                    justifyContent: 'center',
-                  },
-              ]}
-            >
-              <ListItemIcon
+            <Tooltip title={open? null: item.text} placement='right' arrow TransitionComponent={Zoom}   >
+              <ListItemButton
                 sx={[
                   {
-                    minWidth: 0,
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    px: 2.5,
                   },
                   open
                     ? {
-                      mr: 3,
+                      justifyContent: 'initial',
                     }
                     : {
-                      mr: 'auto',
+                      justifyContent: 'center',
                     },
                 ]}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                sx={[
-                  open
-                    ? {
-                      opacity: 1,
-                    }
-                    : {
-                      opacity: 0,
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
                     },
-                ]}
-              />
-            </ListItemButton>
+                    open
+                      ? {
+                        mr: 3,
+                      }
+                      : {
+                        mr: 'auto',
+                      },
+                  ]}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={[
+                    open
+                      ? {
+                        opacity: 1,
+                      }
+                      : {
+                        opacity: 0,
+                      },
+                  ]}
+                />
+              </ListItemButton>
+
+            </Tooltip>
           </ListItem>
         ))}
       </List>
-      <Divider sx={{backgroundColor:'#ffffff20'}} />
+      <Divider sx={{ backgroundColor: '#ffffff20' }} />
 
 
       <List >
         {sidebarArray2.map(item => (
-          <ListItem key={item.path} disablePadding 
-          
-          onClick={()=>{
-            navigate(item.path);
-          }}
-          sx={{ display: 'block',
-                marginBottom:'7px',
-                transition:'background-color 0.4s ease',
-                backgroundColor:
-                location.pathname===item.path? '#861e23 !important':null,
-                borderRadius:
-                location.pathname===item.path?  '12px' :null ,
+          <ListItem key={item.path} disablePadding
+
+            onClick={() => {
+              navigate(item.path);
+            }}
+            sx={{
+              display: 'block',
+              marginBottom: '7px',
+              transition: 'background-color 0.4s ease',
+              backgroundColor:
+                location.pathname === item.path ? '#861e23 !important' : null,
+              borderRadius:
+                location.pathname === item.path ? '12px' : null,
 
 
-           }} 
+            }}
           >
-            <ListItemButton
-              sx={[
-                {
-                  minHeight: 48,
-                  px: 2.5,
-                },
-                open
-                  ? {
-                    justifyContent: 'initial',
-                  }
-                  : {
-                    justifyContent: 'center',
-                  },
-              ]}
-            >
-              <ListItemIcon
+
+            <Tooltip title={open? null:item.text} placement='right' arrow TransitionComponent={Zoom}   >
+
+              <ListItemButton
                 sx={[
                   {
-                    minWidth: 0,
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    px: 2.5,
                   },
                   open
                     ? {
-                      mr: 3,
+                      justifyContent: 'initial',
                     }
                     : {
-                      mr: 'auto',
+                      justifyContent: 'center',
                     },
                 ]}
               >
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={item.text}
-                sx={[
-                  open
-                    ? {
-                      opacity: 1,
-                    }
-                    : {
-                      opacity: 0,
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
                     },
-                ]}
-              />
-            </ListItemButton>
+                    open
+                      ? {
+                        mr: 3,
+                      }
+                      : {
+                        mr: 'auto',
+                      },
+                  ]}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  sx={[
+                    open
+                      ? {
+                        opacity: 1,
+                      }
+                      : {
+                        opacity: 0,
+                      },
+                  ]}
+                />
+              </ListItemButton>
+
+            </Tooltip>
+
           </ListItem>
         ))}
       </List>

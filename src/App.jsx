@@ -8,62 +8,72 @@ import Register from './pages/register/components/Register';
 
 import Chatbot from './pages/chatbot/Chatbot.jsx';
 import MiniDrawer from './components/MiniDrawer.jsx';
-import  Settings  from './pages/settings/Settings.jsx';
+import Settings from './pages/settings/Settings.jsx';
 import ChatHistory from './pages/chatHistory/ChatHistory';
 import Report from './pages/reports/Reports.jsx';
+import NotFounded from './components/NotFounded';
 
 
 function App() {
-  //13/10  ......
+
+  //14/10...................
   const router = createBrowserRouter([
     {
       path: "/register",
       element: <Register />,
     },
-    {
-      path: "/*",
-      element: <Notfound />,
-    },
+    // {  
+    //   path: "/*",
+    //   element: <Notfound />,
+    // },
     {
       path: "/login",
       element: <Login />,
-    }, 
+    },
     {
       path: "/chat",
       element: <Chatbot />,
     },
-    
+
+    {
+      path: "/",
+      element: <MiniDrawer />,
+      children: [
         {
           path: "/",
-          element: <MiniDrawer />,
-          children: [
-            {
-              path: "/",
-              element: <MiniDrawer />,
-            },
-            {
-              path: "/home",
-              element: <Home />,
-            },
-            
-            {
-              path:"/chatbot",
-              element:<Chatbot/>
-            },
-             {
-              path: "/settings",
-              element: <Settings />,
-            },
-             {
-              path: "/chatHistory",
-              element: <ChatHistory />,
-            },
-             {
-              path: "/reports",
-              element: <Report />,
-            },
-          ]
+          element: <Chatbot />,
         },
+        {
+          path: "/home",
+          element: <Home />,
+        },
+
+        {
+          path: "/chatbot",
+          element: <Chatbot />
+        },
+        {
+          path: "/settings",
+          element: <Settings />,
+        },
+        {
+          path: "/chatHistory",
+          element: <ChatHistory />,
+        },
+        {
+          path: "/reports",
+          element: <Report />,
+        },
+        {
+          path: "/*",
+          element: <NotFounded />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+      ]
+    },
 
 
   ]);

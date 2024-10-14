@@ -9,7 +9,7 @@ import TopBar from "./TopBar"
 import SideBar from './SideBar';
 import Chatbot from '../pages/chatbot/Chatbot';
 import { green, red } from '@mui/material/colors';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -36,7 +36,7 @@ const theme = createTheme({
       contrastText: '#fff',   // White text on primary color
     },
     secondary: {
-      main: '#171717',        // Very dark gray (almost black)
+      main: '#85262a',        // Very dark gray (almost black)
       light: '#424242',       // Light gray
       dark: '#000000',        // Darker shade for secondary
       contrastText: '#ffffff' // White text on secondary color
@@ -69,7 +69,7 @@ export default function MiniDrawer() {
   return (
     <ThemeProvider theme={theme}>
 
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', overflow:'hidden'}}>
        <CssBaseline />
 
       <TopBar open={open} handleDrawerOpen={handleDrawerOpen} />
@@ -83,7 +83,6 @@ export default function MiniDrawer() {
           example eaaskdla;sdfjk;;jklas
         </Typography> */}
         <div className="outletPage">
-
                 <Outlet/>
   
         </div>  

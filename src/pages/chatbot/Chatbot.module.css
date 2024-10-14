@@ -366,9 +366,9 @@ border-radius: 5px;
     border-radius: 10px;
     position: relative;
     display: block;
-    max-width: 60%;
+    max-width: 70%;
     clear: both;
-    font-size: 21px;
+    font-size: 17px;
     /* Default size increased by 5px */
 }
 
@@ -376,7 +376,6 @@ border-radius: 5px;
     background-color: #85262bbd;
     color: #ffffffe4;
     margin-left: auto;
-    font-size: 21px;
     /* 16px (original) + 5px */
 }
 
@@ -775,14 +774,11 @@ border-radius: 5px;
 
 
 
-@media (max-width: 5685px){
 
-
-}
-@media  (max-width: 2685px) {
+@media  screen and (max-width: 2685px) {
 
     .chatMessages .mContainer {
-        width: 70%;
+        width: 80%;
     }
 
     .chatInput .mContainer {
@@ -796,9 +792,9 @@ border-radius: 5px;
     
 }
 
-@media (max-width: 1900px) {
+@media (max-width: 1980px) {
     .chatMessages .mContainer {
-        width: 75%;
+        width: 85%;
     }
 
     .chatInput .mContainer {
@@ -827,7 +823,9 @@ border-radius: 5px;
         display: none;
     }
 
-    
+    .chatMessage {
+        max-width: 85%;
+      }
 }
 @media (min-width: 1199.98px) {
     .overlay{
@@ -837,6 +835,9 @@ border-radius: 5px;
 }
 /* Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
+  .chatMessage {
+    max-width: 85%;
+  }
     .sidebar {
 
         position: fixed;
