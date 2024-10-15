@@ -111,7 +111,7 @@ const sidebarArray2 = [
     "path": "/settings",
   },
     {
-    "text": "New Account",
+    "text": "New Rigester",
     "icon": <ManageAccountsIcon />,
     "path": "/register",
   },

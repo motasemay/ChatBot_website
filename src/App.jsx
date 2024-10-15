@@ -16,7 +16,7 @@ import NotFounded from './components/NotFounded';
 
 function App() {
 
-  //14/10...................
+  //15/10=======
   const router = createBrowserRouter([
     {
       path: "/register",
