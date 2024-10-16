@@ -3,11 +3,10 @@ import './App.css'
 import Login from './pages/login/components/Login';
 import Home from './pages/home/components/Home';
 import Notfound from './components/Notfound';
-import Root from './routes/Root';
 import Register from './pages/register/components/Register';
 
 import Chatbot from './pages/chatbot/Chatbot.jsx';
-import MiniDrawer from './components/MiniDrawer.jsx';
+import MiniDrawer from './routes/MiniDrawer.jsx';
 import Settings from './pages/settings/Settings.jsx';
 import ChatHistory from './pages/chatHistory/ChatHistory';
 import Report from './pages/reports/Reports.jsx';
@@ -16,7 +15,8 @@ import NotFounded from './components/NotFounded';
 
 function App() {
 
-  //15/10=======
+  //1666666/10=======
+
   const router = createBrowserRouter([
     {
       path: "/register",

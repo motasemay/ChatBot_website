@@ -16,3 +16,9 @@ body {
 .outletPage{
   border-radius: 50px;
 }
+.formErrorAlert{
+  font-size: .9rem;
+  color: rgb(212, 34, 34);
+  margin: 0;
+  padding: 0;
+}

@@ -5,9 +5,9 @@ import Box from '@mui/material/Box';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import TopBar from "./TopBar"
-import SideBar from './SideBar';
-import Chatbot from '../pages/chatbot/Chatbot';
+import TopBar from "../components/TopBar.jsx"
+import SideBar from '../components/SideBar.jsx';
+import Chatbot from '../pages/chatbot/Chatbot.jsx';
 import { green, red } from '@mui/material/colors';
 import { Outlet, useLocation } from 'react-router-dom';
 
