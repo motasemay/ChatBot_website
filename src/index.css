@@ -11,14 +11,36 @@ body {
   background-color: black;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   overflow-x: hidden;
+  /* --toastify-text-color-dark: #ffffff;
+  --toastify-toast-background: #832c2c;
+
+  --toastify-z-index: 999999999999999;
+  --toastify-color-: rgba(255, 24, 24, 0.7); */
 }
 
-.outletPage{
+.outletPage {
   border-radius: 50px;
 }
-.formErrorAlert{
-  font-size: .9rem;
+.formErrorAlert {
+  font-size: 0.9rem;
   color: rgb(212, 34, 34);
   margin: 0;
   padding: 0;
+}
+
+.successToast {
+  background-color: #000000;
+  color: #fff;
+
+  --toastify-color-progress-success: #ffffff;
+  --toastify-icon-color-success: #ffffff;
+
+  margin-bottom: 100px;
+}
+.errorToast {
+  color: #fff;
+  background-color: #000000;
+  --toastify-icon-color-error: #fc0101;
+  --toastify-color-progress-error: #ff0000;
+  margin-bottom: 100px;
 }

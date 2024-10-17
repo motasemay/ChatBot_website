@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+// @ts-nocheck
+import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
 import './App.css'
 import Login from './pages/login/components/Login';
 import Home from './pages/home/components/Home';
@@ -11,38 +12,44 @@ import Settings from './pages/settings/Settings.jsx';
 import ChatHistory from './pages/chatHistory/ChatHistory';
 import Report from './pages/reports/Reports.jsx';
 import NotFounded from './components/NotFounded';
-
+import { useState } from 'react';
+import ProtectedRoutes from './auth/ProtectedRoutes';
+import { ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("userToken"));
 
-  //1666666/10=======
+
+
 
   const router = createBrowserRouter([
     {
       path: "/register",
       element: <Register />,
     },
-    // {  
-    //   path: "/*",
-    //   element: <Notfound />,
-    // },
+    {
+      path: "/*",
+      element: <Notfound />,
+    },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login setIsLogin={setIsLogin} />,
     },
-    {
-      path: "/chat",
-      element: <Chatbot />,
-    },
+
 
     {
       path: "/",
-      element: <MiniDrawer />,
+      element:
+        <ProtectedRoutes>
+          <MiniDrawer setIsLogin={setIsLogin} />
+        </ProtectedRoutes>,
       children: [
         {
           path: "/",
           element: <Chatbot />,
         },
+
         {
           path: "/home",
           element: <Home />,
@@ -80,6 +87,8 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+
+      <ToastContainer />
     </>
   )
 }

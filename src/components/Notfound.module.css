@@ -1,0 +1,43 @@
+.notFoundContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #181818; 
+    color: #fff;
+  }
+  
+  .notFoundBox {
+    text-align: center;
+    background-color: #333;
+    padding: 55px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .notFoundTitle {
+    font-size: 4em;
+    font-weight: bold;
+    color: #d3131a; 
+  }
+  
+  .notFoundMessage {
+    margin-bottom: 35px;
+    font-size: 1.2em;
+  }
+  
+  .homeButton {
+    background-color: #d3131a; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homeButton:hover {
+    background-color: #ff4a4a;
+  }
+  

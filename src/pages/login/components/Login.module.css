@@ -91,8 +91,11 @@ section .signin .content
   flex-direction: column;
   gap: 40px;
 }
-section .signin .content h2 
+section .signin .content img 
 {
+  width: auto; 
+  height: 2em; 
+  max-width: 100%;
   font-size: 2em;
   color: #85262a;
   text-transform: uppercase;
@@ -122,6 +125,27 @@ section .signin .content .form .inputBox input
   font-weight: 500;
   font-size: 1em;
 }
+input:-webkit-autofill {
+  background-color: #333 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 100px #333 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 1px solid #696565 !important;    
+
+}
+
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  background-color: #ffffff4f !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 100px #333 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 1px solid #696565 !important;   
+
+}
+
+
 section .signin .content .form .inputBox label 
 {
   position: absolute;

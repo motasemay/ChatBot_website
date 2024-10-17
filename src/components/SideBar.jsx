@@ -124,10 +124,15 @@ const sidebarArray2 = [
 ]
 
 
-function SideBar({ open, handleDrawerClose, theme }) {
+function SideBar({ open, handleDrawerClose, theme, setIsLogin}) {
   const navigate = useNavigate();
   // const theme = useTheme();
 
+   const handleLogOut=()=>{
+    localStorage.removeItem("userToken");
+    setIsLogin(false);
+    navigate('/login');
+  }
   return (
     <Drawer className={SideBarStyle.sidebarContainer} variant="permanent" open={open} >
       <DrawerHeader  >
@@ -219,9 +224,13 @@ function SideBar({ open, handleDrawerClose, theme }) {
         {sidebarArray2.map(item => (
           <ListItem key={item.path} disablePadding
 
-            onClick={() => {
-              navigate(item.path);
-            }}
+          onClick={
+            item.text === "Log Out"
+              ? () => handleLogOut()
+              : () => {
+                  navigate(item.path);
+                }
+          }
             sx={{
               display: 'block',
               marginBottom: '7px',

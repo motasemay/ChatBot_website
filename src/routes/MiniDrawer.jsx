@@ -52,7 +52,7 @@ const theme = createTheme({
   },
 });
   
-export default function MiniDrawer() {
+export default function MiniDrawer({setIsLogin}) {
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -74,7 +74,7 @@ export default function MiniDrawer() {
 
       <TopBar open={open} handleDrawerOpen={handleDrawerOpen} />
 
-      <SideBar open={open} handleDrawerClose={handleDrawerClose} theme={theme}/>
+      <SideBar open={open} handleDrawerClose={handleDrawerClose}  setIsLogin={setIsLogin} theme={theme}/>
 
 
       <Box component="main" sx={{ flexGrow: 1, p: 0.07 }} >

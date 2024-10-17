@@ -84,11 +84,17 @@
   flex-direction: column;
   gap: 40px;
 }
-.registerSection .signin .content h2 {
+.registerSection .signin .content img {
+  width: auto; 
+  height: 2em; 
+  max-width: 100%;
+
   font-size: 2em;
   color: #85262a;
   text-transform: uppercase;
 }
+
+
 .registerSection .signin .content .form {
   width: 100%;
   display: flex;
@@ -111,6 +117,27 @@
   font-weight: 500;
   font-size: 1em;
 }
+
+input:-webkit-autofill {
+  background-color: #333 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 100px #333 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 1px solid #696565 !important;    
+
+}
+
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  background-color: #ffffff4f !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 100px #333 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 1px solid #696565 !important;   
+
+}
+
 .registerSection .signin .content .form .inputBox label {
   position: absolute;
   left: 0;
@@ -143,7 +170,7 @@
 .signin .content .form .inputBox input[type="submit"] {
   padding: 10px;
   background: #85262a;
-  color: #000;
+  color: #000000;
   font-weight: 600;
   font-size: 1.35em;
   letter-spacing: 0.05em;

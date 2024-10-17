@@ -4,6 +4,7 @@ import axios from 'axios';
 import { marked } from 'marked';
 import ourLogo from '../../assets/ourLogo.jpg';
 import chatStyle from './Chatbot.module.css';
+import { Flip, Slide, toast } from "react-toastify";
 
 function Chatbot() {
 
@@ -114,7 +115,22 @@ function Chatbot() {
         const totalFiles = selectedFiles.length + files.length;
 
         if (totalFiles > 10) {
-            alert('You cannot upload more than 10 files.');
+            // alert('You cannot upload more than 10 files.');
+            toast.error('You cannot upload more than 10 files.', {
+                position: "bottom-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                pauseOnFocusLoss: false,
+                className: 'errorToast',
+                theme: "dark",
+                transition: Flip,
+              });
+                
+              
             return;
         }
 
@@ -129,7 +145,19 @@ function Chatbot() {
 
     const handleProcessFiles = async () => {
         if (selectedFiles.length === 0) {
-            alert("Please select at least one file to process.");
+            toast.error('You cannot upload more than 10 files.', {
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                pauseOnFocusLoss: false,
+                className: 'errorToast',
+                theme: "dark",
+                transition: Flip,
+              });
             return;
         }
 
@@ -141,8 +169,20 @@ function Chatbot() {
         try {
             const response = await axios.post('/process-file', formData);
             console.log('Process result:', response.data);
-            alert(response.data.message || 'Files processed successfully!');
-
+            // alert(response.data.message || 'Files processed successfully!');
+            toast.error(response.data.message || 'Files processed successfully!', {
+                position: "bottom-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                pauseOnFocusLoss: false,
+                className: 'errorToast',
+                theme: "dark",
+                transition: Flip,
+              });
             setProcessedFiles([...processedFiles, ...selectedFiles]);
             setProcessedFilesSectionVisible(true);
 
@@ -152,17 +192,57 @@ function Chatbot() {
                     console.log('Index reloaded successfully!');
                 } else {
                     console.error('Index reload failed:', reloadResponse.data.error);
-                    alert('Index reload failed. Please try again.');
+                    // alert('Index reload failed. Please try again.');
+                    toast.error('Index reload failed. Please try again.', {
+                        position: "bottom-center",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        pauseOnFocusLoss: false,
+                        className: 'errorToast',
+                        theme: "dark",
+                        transition: Flip,
+                      });
                 }
             } catch (reloadError) {
                 console.error('Error reloading index:', reloadError);
-                alert('Error reloading index.');
+                // alert('Error reloading index.');
+                toast.error('Error reloading index.', {
+                    position: "bottom-center",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    pauseOnFocusLoss: false,
+                    className: 'errorToast',
+                    theme: "dark",
+                    transition: Flip,
+                  });
 
             }
 
         } catch (error) {
             console.error('Error processing files:', error);
-            alert('Error processing the files.');
+            // alert('Error processing the files.');
+            toast.error('Error processing the files.', {
+                position: "bottom-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                pauseOnFocusLoss: false,
+                className: 'errorToast',
+                theme: "dark",
+                transition: Flip,
+              });
+              
         } finally {
             setSelectedFiles([]);
             setIsLoading(false);
