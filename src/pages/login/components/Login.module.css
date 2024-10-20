@@ -89,7 +89,7 @@ section .signin .content
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 section .signin .content img 
 {

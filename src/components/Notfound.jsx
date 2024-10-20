@@ -9,7 +9,7 @@ function Notfound() {
     navigate('/');
   };
 
-//17/10
+
   return (
     <div className={styles.notFoundContainer}>
     <div className={styles.notFoundBox}>

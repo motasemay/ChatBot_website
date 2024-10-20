@@ -1,8 +1,12 @@
+import Header from '../../components/Header'
 import React from 'react'
 
 function Settings() {
   return (
-    <div>Settings</div>
+  <>
+        <Header title="SETTINGS" subTitle="Control the website behavior." />   
+
+  </>
   )
 }
 

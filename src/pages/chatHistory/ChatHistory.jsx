@@ -1,8 +1,14 @@
+import Header from '../../components/Header'
 import React from 'react'
 
 function ChatHistory() {
   return (
-    <div>ChatHistory</div>
+    <>
+    <Header title="CHAT HISTORY" subTitle="A record of your previous chats." />   
+
+    
+
+    </>
   )
 }
 

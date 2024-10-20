@@ -1,7 +1,7 @@
 import { Box, IconButton, Stack, styled, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
-import topBarStyle from "./TopBar.module.css";
+
 import SearchBar from './SearchBar';
 
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
