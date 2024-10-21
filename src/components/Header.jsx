@@ -4,20 +4,23 @@ import { Box, Typography, useTheme } from "@mui/material";
 const Header = ({title, subTitle}) => {
   
   return (
-    <Box mb={2} mt={1} ml={2}>
+    <Box mb={2} mt={1} ml={2} sx={{}}>
     <Typography
       sx={{
-        color: "#d90008",
+        color: "#c51d23",
         fontWeight: "bold",
+        letterSpacing:"3px",
+        
+
       }}
-      variant="h5"
+      variant="h4" component="h1"
     >
       {title}
     </Typography>
-    <Typography variant="body1">{subTitle}</Typography>
+    <Typography variant="body2" component="p">{subTitle}</Typography>
   </Box>
 
-  
+  //21/10
   );
 }
 

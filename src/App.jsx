@@ -7,7 +7,7 @@ import Notfound from './components/Notfound';
 import Register from './pages/register/components/Register';
 
 import Chatbot from './pages/chatbot/Chatbot.jsx';
-import MiniDrawer from './routes/MiniDrawer.jsx';
+import Root from './routes/Root.jsx';
 import Settings from './pages/settings/Settings.jsx';
 import ChatHistory from './pages/chatHistory/ChatHistory';
 import Report from './pages/reports/Reports.jsx';
@@ -42,7 +42,7 @@ function App() {
       path: "/",
       element:
         <ProtectedRoutes>
-          <MiniDrawer setIsLogin={setIsLogin} />
+          <Root setIsLogin={setIsLogin} />
         </ProtectedRoutes>,
       children: [
         {

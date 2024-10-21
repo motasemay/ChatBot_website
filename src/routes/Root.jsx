@@ -52,7 +52,7 @@ const theme = createTheme({
   },
 });
   
-export default function MiniDrawer({setIsLogin}) {
+export default function Root({setIsLogin}) {
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
