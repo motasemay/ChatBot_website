@@ -52,7 +52,7 @@ const theme = createTheme({
   },
 });
   
-export default function Root({setIsLogin}) {
+export default function LayoutEmployee({setIsLogin,layoutName}) {
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -65,16 +65,16 @@ export default function Root({setIsLogin}) {
   };
 
 
-
+  
   return (
     <ThemeProvider theme={theme}>
 
     <Box sx={{ display: 'flex', overflow:'hidden'}}>
        <CssBaseline />
 
-      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} />
+      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} layoutName={"Bilsan AI Tools"}/>
 
-      <SideBar open={open} handleDrawerClose={handleDrawerClose}  setIsLogin={setIsLogin} theme={theme}/>
+      <SideBar open={open} handleDrawerClose={handleDrawerClose}  setIsLogin={setIsLogin} theme={theme} isAdmin={false}/>
 
 
       <Box component="main" sx={{ flexGrow: 1, p: 0.07 }} >

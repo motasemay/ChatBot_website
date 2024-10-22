@@ -35,7 +35,7 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 
-function TopBar({ open, handleDrawerOpen }) {
+function TopBar({ open, handleDrawerOpen ,layoutName}) {
 
     return (
         <AppBar position="fixed" 
@@ -56,9 +56,9 @@ function TopBar({ open, handleDrawerOpen }) {
                 >
                     <MenuIcon />
                 </IconButton>
-                {/* <Typography variant="h6" noWrap component="div" sx={{marginRight:'80px'}}>
-                    Bilsan ChatBot
-                </Typography> */}
+                 <Typography variant="h6" noWrap component="div" sx={{marginRight:'80px'}}>
+                    {layoutName}
+                </Typography> 
                 <SearchBar />
 
                 <Box flexGrow={1} />

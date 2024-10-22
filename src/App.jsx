@@ -7,18 +7,35 @@ import Notfound from './components/Notfound';
 import Register from './pages/register/components/Register';
 
 import Chatbot from './pages/chatbot/Chatbot.jsx';
-import Root from './routes/Root.jsx';
+import LayoutEmployee from './routes/LayoutEmployee.jsx';
 import Settings from './pages/settings/Settings.jsx';
 import ChatHistory from './pages/chatHistory/ChatHistory';
 import Report from './pages/reports/Reports.jsx';
 import NotFounded from './components/NotFounded';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProtectedRoutes from './auth/ProtectedRoutes';
 import { ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
+import NewCompany from './adminPages/newCompany/NewCompany.jsx';
+import LayoutSuperAdmin from './routes/LayoutSuperAdmin';
 
 function App() {
   const [isLogin, setIsLogin] = useState(localStorage.getItem("userToken"));
+
+  // const [users, setUser] = useState(null);
+
+  //   const saveCurrentUser = () => {
+  //   const token = localStorage.getItem("userToken");
+  //   const decode = jwtDecode(token);
+  //   setUser(decode);
+  // };
+
+
+  // useEffect(()=>{
+  //   if(localStorage.getItem("userToken")){
+  //     saveCurrentUser();
+  //   }
+  // },[])
 
 
 
@@ -42,7 +59,7 @@ function App() {
       path: "/",
       element:
         <ProtectedRoutes>
-          <Root setIsLogin={setIsLogin} />
+          <LayoutEmployee setIsLogin={setIsLogin} />
         </ProtectedRoutes>,
       children: [
         {
@@ -81,7 +98,28 @@ function App() {
         },
       ]
     },
-
+    {
+      path: "/admin",
+      element:
+        <ProtectedRoutes>
+          <LayoutSuperAdmin setIsLogin={setIsLogin} />
+        </ProtectedRoutes>,
+      children: [
+        {
+          path: "",
+          element: <Chatbot />,
+        },  
+        {
+          path: "chatbot",
+          element: <Chatbot />,
+        },  
+        
+      ]
+    },
+    {
+      path: "/newCompany",
+      element: <NewCompany />,
+    }
 
   ]);
   return (
