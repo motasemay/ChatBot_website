@@ -84,7 +84,9 @@ function Login({ setIsLogin }) {
           <div className={logStyle.signin}>
             <div className={logStyle.content}>
               {/* <h2>log in</h2> */}
-              <img src={ourLogo} alt="Bislan AI Logo" />
+              {/* <img src={ourLogo} alt="Bislan AI Logo" /> */}
+              <h2 className={logStyle.companyName}>FusionIQ</h2>
+
               <form className={logStyle.form} onSubmit={formik.handleSubmit}>
 
 

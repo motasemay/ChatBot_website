@@ -84,14 +84,15 @@
   flex-direction: column;
   gap: 30px;
 }
-.registerSection .signin .content img {
-  width: auto; 
-  height: 2em; 
+.registerSection .signin .content .companyName {
+  /* width: 100%;  */
+  /* height: 2em;  */
   max-width: 100%;
 
-  font-size: 2em;
+  font-size: 65px;
   color: #85262a;
   text-transform: uppercase;
+  text-align: center;
 }
 
 

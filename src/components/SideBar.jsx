@@ -88,7 +88,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const sidebarArray1 = [
 
   {
-    "text": "Bilsan Chatbot",
+    "text": "FusionIQ Chatbot",
     "icon": <AutoAwesomeOutlinedIcon />,
     "path": "/chatbot",
   },
@@ -160,10 +160,10 @@ function SideBar({ open, handleDrawerClose, theme, setIsLogin,isAdmin}) {
               
              
                   isAdmin?
-                  item.text === "Bilsan Chatbot"&&location.pathname==='/admin' ? '#861e23 !important' : 
+                  item.text === "FusionIQ Chatbot"&&location.pathname==='/admin' ? '#861e23 !important' : 
                   location.pathname === `/admin${item.path}` ? '#861e23 !important' : null
                   :
-                  item.text === "Bilsan Chatbot"&&location.pathname==='/' ? '#861e23 !important' : 
+                  item.text === "FusionIQ Chatbot"&&location.pathname==='/' ? '#861e23 !important' : 
                   location.pathname === item.path ? '#861e23 !important' : null,
 
 

@@ -72,7 +72,7 @@ export default function LayoutSuperAdmin({setIsLogin}) {
     <Box sx={{ display: 'flex', overflow:'hidden'}}>
        <CssBaseline />
 
-      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} layoutName={"Bilsan AI Tools / SuperAdmin"} />
+      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} layoutName={"FusionIQ AI Tools / SuperAdmin"} />
 
       <SideBar open={open} handleDrawerClose={handleDrawerClose}  setIsLogin={setIsLogin} theme={theme} isAdmin={true}/>
 

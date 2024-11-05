@@ -292,8 +292,9 @@
   margin-top: 3px;
 }
 
-.chatHeader img {
-  width: 130px;
+.chatHeader .companyName {
+  font-size: 30px;
+  color: #85262a;
   /* display: block; */
 }
 

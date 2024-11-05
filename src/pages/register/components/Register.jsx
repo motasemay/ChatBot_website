@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import axios from 'axios';
 import * as yup from 'yup'
-import ourLogo from '../../../assets/ourLogo.jpg';
+// import ourLogo from '../../../assets/ourLogo.jpg';
 
 
 function Register() {
@@ -61,7 +61,7 @@ const formik=useFormik({
           <div className={regStyle.signin}>
             <div className={regStyle.content}>
               {/* <h2>Register</h2> */}
-              <img src={ourLogo} alt="Bislan AI Logo" />
+              <h2 className={regStyle.companyName}>FusionIQ</h2>
 
 
               <form onSubmit={formik.handleSubmit} className={regStyle.form}>

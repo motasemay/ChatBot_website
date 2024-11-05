@@ -58,9 +58,9 @@ function App() {
     {
       path: "/",
       element:
-        <ProtectedRoutes>
+        
           <LayoutEmployee setIsLogin={setIsLogin} />
-        </ProtectedRoutes>,
+       ,
       children: [
         {
           path: "/",
@@ -101,9 +101,9 @@ function App() {
     {
       path: "/admin",
       element:
-        <ProtectedRoutes>
+        
           <LayoutSuperAdmin setIsLogin={setIsLogin} />
-        </ProtectedRoutes>,
+       ,
       children: [
         {
           path: "",

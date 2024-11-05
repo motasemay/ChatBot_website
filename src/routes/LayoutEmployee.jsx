@@ -72,7 +72,7 @@ export default function LayoutEmployee({setIsLogin,layoutName}) {
     <Box sx={{ display: 'flex', overflow:'hidden'}}>
        <CssBaseline />
 
-      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} layoutName={"Bilsan AI Tools"}/>
+      <TopBar open={open} handleDrawerOpen={handleDrawerOpen} layoutName={"FusionIQ AI Tools"}/>
 
       <SideBar open={open} handleDrawerClose={handleDrawerClose}  setIsLogin={setIsLogin} theme={theme} isAdmin={false}/>
 
